@@ -3,5 +3,6 @@
 
 void ABaseCharacter::CharacterTimer()
 {
-	ICharacterBaseInterfaces::CharacterTimer();
+	DefineSpeedValues();
+	DefineCharacterState();
 }

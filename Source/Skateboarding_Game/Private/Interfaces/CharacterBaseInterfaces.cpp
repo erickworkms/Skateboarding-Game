@@ -12,11 +12,7 @@ void ICharacterBaseInterfaces::DefineSpeedValues()
 {
 }
 
-void ICharacterBaseInterfaces::CreateDefaultCharacterSettings()
-{
-}
-
-void ICharacterBaseInterfaces::CreateDefaultCameraSettings()
+void ICharacterBaseInterfaces::DefineCharacterState()
 {
 }
 

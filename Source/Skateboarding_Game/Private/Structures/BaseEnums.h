@@ -17,7 +17,7 @@ enum FBaseActionEnums
 	LadderSlidding UMETA(DisplayName = "Ladder Slidding"),
 	WallRoll UMETA(DisplayName = "Wall Roll"),
 	BackJump UMETA(DisplayName = "Back Jump"),
-	ArFeint UMETA(DisplayName = "Ar Feint"),
+	AirFeint UMETA(DisplayName = "Air Feint"),
 	GroundFeint UMETA(DisplayName = "Ground Feint"),
 	NoAction UMETA(DisplayName = "No Action")
 };
@@ -26,6 +26,6 @@ UENUM(BlueprintType)
 enum FBaseCharacterStates
 {
 	OntheGround UMETA(DisplayName = "OntheGround"),
-	Falling UMETA(DisplayName = "Falling"),
-	Flying UMETA(DisplayName = "Flying")
+	FallingIntheAir UMETA(DisplayName = "Falling"),
+	FlyingIntheAir UMETA(DisplayName = "Flying")
 };

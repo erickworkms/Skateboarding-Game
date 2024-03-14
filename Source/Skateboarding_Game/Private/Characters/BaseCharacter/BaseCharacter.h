@@ -32,7 +32,12 @@ public:
 	TEnumAsByte<FBaseCharacterStates> CharacterStates;
 	
 	TEnumAsByte<FBaseActionEnums> CharacterActions;
+
+	UPROPERTY()
+	FBaseStructs BaseVariables;
 	
+	UPROPERTY()
+	FTimerHandle GeneralTimer;
 	UPROPERTY()
 	FTimerHandle ActionTimer;
 	UPROPERTY()
@@ -63,9 +68,11 @@ protected:
 	virtual void DefineDefaultValues() override;
 	virtual void ResetDefaultValues() override;
 	virtual void DefineSpeedValues() override;
-	virtual void CreateDefaultCharacterSettings() override;
+	void CreateDefaultCharacterSettings();
 	virtual void CharacterTimer() override;
-	virtual void CreateDefaultCameraSettings() override;
+	void CreateDefaultCameraSettings();
+
+	virtual void DefineCharacterState() override;
 	
 public:
 	// Called to bind functionality to input

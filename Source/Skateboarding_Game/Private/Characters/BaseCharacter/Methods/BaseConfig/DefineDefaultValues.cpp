@@ -1,6 +1,28 @@
 ﻿#include "Characters/BaseCharacter/BaseCharacter.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 void ABaseCharacter::DefineDefaultValues()
 {
-	ICharacterBaseInterfaces::DefineDefaultValues();
+	BaseVariables.Direction = 0;
+	BaseVariables.Points = 0;
+	BaseVariables.Speed = 0;
+	BaseVariables.AnimationSpeed = 1;
+	BaseVariables.CharacterAngle = 0;
+	BaseVariables.MaxSpeed = 0;
+	BaseVariables.ActionIsActived = false;
+	BaseVariables.IsCharacterMoving = false;
+	BaseVariables.IsUsingSkateboard = false;
+
+	CharacterStates = OntheGround;
+	CharacterActions = NoAction;
+
+	SkateboardMesh->AttachToComponent(GetMesh(),
+					 FAttachmentTransformRules::SnapToTargetIncludingScale, "SkateboardSocket");
+	SkateboardMesh->SetRelativeLocationAndRotation(FVector(0, 0, 0),
+										  FRotator(0, 0, 0), false, nullptr);
+	
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);
+	GetCharacterMovement()->JumpZVelocity = 1000.0f;
+	GetCharacterMovement()->AirControl = 0.5f;
 }

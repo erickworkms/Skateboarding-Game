@@ -2,5 +2,10 @@
 
 void ABaseCharacter::ResetDefaultValues()
 {
-	ICharacterBaseInterfaces::ResetDefaultValues();
+	BaseVariables.ActionIsActived = false;
+	BaseVariables.IsCharacterMoving = false;
+	BaseVariables.IsUsingSkateboard = false;
+
+	CharacterStates = OntheGround;
+	CharacterActions = NoAction;
 }

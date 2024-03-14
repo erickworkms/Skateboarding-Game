@@ -18,9 +18,8 @@ public:
 	virtual void DefineDefaultValues();
 	virtual void ResetDefaultValues();
 	virtual void DefineSpeedValues();
+	virtual void DefineCharacterState();
 	
-	virtual void CreateDefaultCharacterSettings();
-	virtual void CreateDefaultCameraSettings();
 	virtual void CharacterTimer();
 	
 	virtual FBaseStructs ReturnCharacterInfo();

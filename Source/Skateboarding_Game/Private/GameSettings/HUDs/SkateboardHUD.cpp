@@ -2,4 +2,5 @@
 
 ASkateboardHUD::ASkateboardHUD()
 {
+	SetTickableWhenPaused(true);
 }

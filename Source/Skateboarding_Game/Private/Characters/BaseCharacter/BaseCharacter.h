@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "GameSettings/GameMode/SkateboardGameMode.h"
 #include "Skateboarding_Game/Private/Interfaces/CharacterBaseInterfaces.h"
 #include "Skateboarding_Game/Private/Structures/BaseEnums.h"
 #include "BaseCharacter.generated.h"
@@ -36,6 +37,9 @@ public:
 	float PressedButtonValue = 0;
 	int SpeedIndex = 0;
 	
+
+	UPROPERTY()
+	ASkateboardGameMode* SkateGameMode;
 	
 	TEnumAsByte<EBaseCharacterStates> CharacterStates;
 	
@@ -81,6 +85,9 @@ protected:
 	
 	void PauseGame_Pressed();
 	void PauseGame_Released();
+
+	void ControllerMap_Pressed();
+	void ControllerMap_Released();
 	
 	virtual void DefineDefaultValues() override;
 	virtual void ResetDefaultValues() override;

@@ -1,5 +1,6 @@
-﻿
-#include "Characters/BaseCharacter/BaseCharacter.h"
+﻿#include "Characters/BaseCharacter/BaseCharacter.h"
+#include "GameSettings/Controller/SkateboardController.h"
+#include "GameSettings/GameMode/SkateboardGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 void ABaseCharacter::PauseGame_Pressed()
@@ -7,16 +8,21 @@ void ABaseCharacter::PauseGame_Pressed()
 	if (!ButtonIsPressed)
 	{
 		ButtonIsPressed = true;
-
+	
 		if (UGameplayStatics::IsGamePaused(GetWorld()))
 		{
-			UGameplayStatics::SetGamePaused(GetWorld(),false);
+			if (SkateGameMode)
+			{
+				SkateGameMode->Hud->UnPauseGame();
+			}
 		}
-		else
+		else if (!UGameplayStatics::IsGamePaused(GetWorld()))
 		{
-			UGameplayStatics::SetGamePaused(GetWorld(),true);
+			if (SkateGameMode)
+			{
+				SkateGameMode->Hud->PauseGame();
+			}
 		}
-
 	}
 }
 

@@ -4,14 +4,14 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	
-	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABaseCharacter::MoveForward);
-	PlayerInputComponent->BindAxis(TEXT("MoveSide"), this, &ABaseCharacter::MoveSide);
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ABaseCharacter::MoveForward).bExecuteWhenPaused = true;
+	PlayerInputComponent->BindAxis(TEXT("MoveSide"), this, &ABaseCharacter::MoveSide).bExecuteWhenPaused = true;
 	
 	PlayerInputComponent->BindAxis(TEXT("ForwardCameraAngle"), this, &ABaseCharacter::ForwardCameraAngle);
 	PlayerInputComponent->BindAxis(TEXT("SideCameraAngle"), this, &ABaseCharacter::SideCameraAngle);
 	
-	PlayerInputComponent->BindAction(TEXT("ActiveJump"), IE_Pressed, this, &ABaseCharacter::ActiveJump_Pressed);
-	PlayerInputComponent->BindAction(TEXT("ActiveJump"), IE_Released, this, &ABaseCharacter::ActiveJump_Released);
+	PlayerInputComponent->BindAction(TEXT("ActiveJump"), IE_Pressed, this, &ABaseCharacter::ActiveJump_Pressed).bExecuteWhenPaused = true;
+	PlayerInputComponent->BindAction(TEXT("ActiveJump"), IE_Released, this, &ABaseCharacter::ActiveJump_Released).bExecuteWhenPaused = true;
 	
 	PlayerInputComponent->BindAction(TEXT("ActiveAction"), IE_Pressed, this,
 									 &ABaseCharacter::ActiveAction_Pressed);
@@ -29,7 +29,9 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAction(TEXT("SpeedDown"), IE_Pressed, this, &ABaseCharacter::SpeedDown_Pressed);
 	PlayerInputComponent->BindAction(TEXT("SpeedDown"), IE_Released, this, &ABaseCharacter::SpeedDown_Released);
 
-	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Pressed, this, &ABaseCharacter::PauseGame_Pressed);
-	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Released, this, &ABaseCharacter::PauseGame_Released);
+	PlayerInputComponent->BindAction(TEXT("ControllerMap"), IE_Pressed, this, &ABaseCharacter::ControllerMap_Pressed).bExecuteWhenPaused = true;
+	PlayerInputComponent->BindAction(TEXT("ControllerMap"), IE_Released, this, &ABaseCharacter::ControllerMap_Released).bExecuteWhenPaused = true;
 
+	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Pressed, this, &ABaseCharacter::PauseGame_Pressed).bExecuteWhenPaused = true;
+	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Released, this, &ABaseCharacter::PauseGame_Released).bExecuteWhenPaused = true;
 }

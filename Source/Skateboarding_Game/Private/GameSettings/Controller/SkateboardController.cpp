@@ -10,4 +10,5 @@ void ASkateboardController::BeginPlay()
 	SetInputMode(InputMode);
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Crosshairs;
+	SetTickableWhenPaused(true);
 }

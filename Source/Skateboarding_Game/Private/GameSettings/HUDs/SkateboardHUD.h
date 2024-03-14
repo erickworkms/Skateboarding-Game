@@ -13,7 +13,19 @@ public:
 	void StartGame();
 
 	UFUNCTION(BlueprintImplementableEvent)
+	void PauseGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UnPauseGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
 	void ExitGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowControllerMap();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ChooseOptionHud();
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void IncreaseButtonValue();

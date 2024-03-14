@@ -1,5 +1,6 @@
 ﻿#include "Characters/BaseCharacter/BaseCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameSettings/Controller/SkateboardController.h"
 
 void ABaseCharacter::DefineDefaultValues()
 {
@@ -26,4 +27,12 @@ void ABaseCharacter::DefineDefaultValues()
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);
 	GetCharacterMovement()->JumpZVelocity = 1000.0f;
 	GetCharacterMovement()->AirControl = 0.5f;
+
+	GetController()->SetTickableWhenPaused(true);
+
+	ASkateboardController* SkateController = Cast<ASkateboardController>(GetController());
+	if (SkateController)
+	{
+		SkateGameMode = Cast<ASkateboardGameMode>(SkateController->GetWorld()->GetAuthGameMode());
+	}
 }

@@ -25,12 +25,12 @@ FBaseStructs ICharacterBaseInterfaces::ReturnCharacterInfo()
 	return FBaseStructs();
 }
 
-FBaseCharacterStates ICharacterBaseInterfaces::ReturnCharacterStates()
+EBaseCharacterStates ICharacterBaseInterfaces::ReturnCharacterStates()
 {
 	return OntheGround;
 }
 
-FBaseActionEnums ICharacterBaseInterfaces::ReturnCharacterActions()
+EBaseActionEnums ICharacterBaseInterfaces::ReturnCharacterActions()
 {
 	return NoAction;
 }

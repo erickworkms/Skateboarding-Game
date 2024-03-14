@@ -1,6 +1,6 @@
 ﻿#include "Characters/BaseCharacter/BaseCharacter.h"
 
-FBaseActionEnums ABaseCharacter::ReturnCharacterActions()
+EBaseActionEnums ABaseCharacter::ReturnCharacterActions()
 {
-	return ICharacterBaseInterfaces::ReturnCharacterActions();
+	return CharacterActions;
 }

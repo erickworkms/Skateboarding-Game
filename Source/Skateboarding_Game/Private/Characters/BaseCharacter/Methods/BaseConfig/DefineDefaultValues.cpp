@@ -15,6 +15,7 @@ void ABaseCharacter::DefineDefaultValues()
 
 	CharacterStates = OntheGround;
 	CharacterActions = NoAction;
+	PossibleAction = NoActionPermitted;
 
 	SkateboardMesh->AttachToComponent(GetMesh(),
 					 FAttachmentTransformRules::SnapToTargetIncludingScale, "SkateboardSocket");

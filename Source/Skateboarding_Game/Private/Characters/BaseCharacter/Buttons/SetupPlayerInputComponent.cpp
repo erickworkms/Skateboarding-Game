@@ -24,6 +24,12 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 									 &ABaseCharacter::ChangeSkateboardUse_Released);
 	
 	PlayerInputComponent->BindAction(TEXT("SpeedUP"), IE_Pressed, this, &ABaseCharacter::SpeedUP_Pressed);
-	PlayerInputComponent->BindAction(TEXT("SpeedUP"), IE_Released, this, &ABaseCharacter::SpeedUP_Pressed);
+	PlayerInputComponent->BindAction(TEXT("SpeedUP"), IE_Released, this, &ABaseCharacter::SpeedUP_Released);
+
+	PlayerInputComponent->BindAction(TEXT("SpeedDown"), IE_Pressed, this, &ABaseCharacter::SpeedDown_Pressed);
+	PlayerInputComponent->BindAction(TEXT("SpeedDown"), IE_Released, this, &ABaseCharacter::SpeedDown_Released);
+
+	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Pressed, this, &ABaseCharacter::PauseGame_Pressed);
+	PlayerInputComponent->BindAction(TEXT("PauseGame"), IE_Released, this, &ABaseCharacter::PauseGame_Released);
 
 }

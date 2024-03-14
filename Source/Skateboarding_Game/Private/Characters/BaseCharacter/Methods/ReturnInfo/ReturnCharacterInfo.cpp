@@ -2,5 +2,5 @@
 
 FBaseStructs ABaseCharacter::ReturnCharacterInfo()
 {
-	return ICharacterBaseInterfaces::ReturnCharacterInfo();
+	return BaseVariables;
 }

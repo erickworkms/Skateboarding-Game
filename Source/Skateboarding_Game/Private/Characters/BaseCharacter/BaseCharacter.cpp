@@ -10,7 +10,6 @@ ABaseCharacter::ABaseCharacter()
 	PrimaryActorTick.bCanEverTick = false;
 	CreateDefaultCharacterSettings();
 	CreateDefaultCameraSettings();
-
 }
 
 // Called when the game starts or when spawned

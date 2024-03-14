@@ -23,6 +23,6 @@ public:
 	virtual void CharacterTimer();
 	
 	virtual FBaseStructs ReturnCharacterInfo();
-	virtual FBaseCharacterStates ReturnCharacterStates();
-	virtual FBaseActionEnums ReturnCharacterActions();
+	virtual EBaseCharacterStates ReturnCharacterStates();
+	virtual EBaseActionEnums ReturnCharacterActions();
 };

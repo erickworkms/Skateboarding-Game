@@ -28,13 +28,24 @@ public:
 	USkeletalMeshComponent* SkateboardMesh;
 	
 	//Basic Variables
+	bool IncreaseSpeed = false;
+	bool DecreaseSpeed = true;
+	bool ButtonIsPressed = false;
+	float IncreaseSpeedValue = 0;
+	float DecreaseSpeedValue = 0;
+	float PressedButtonValue = 0;
+	int SpeedIndex = 0;
 	
-	TEnumAsByte<FBaseCharacterStates> CharacterStates;
 	
-	TEnumAsByte<FBaseActionEnums> CharacterActions;
+	TEnumAsByte<EBaseCharacterStates> CharacterStates;
+	
+	TEnumAsByte<EBaseActionEnums> CharacterActions;
 
 	UPROPERTY()
 	FBaseStructs BaseVariables;
+
+	UPROPERTY()
+	TEnumAsByte<EBasePermittedActionEnums> PossibleAction;
 	
 	UPROPERTY()
 	FTimerHandle GeneralTimer;
@@ -48,10 +59,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	void MoveForward(float valor);
-	void MoveSide(float valor);
-	void ForwardCameraAngle(float valor);
-	void SideCameraAngle(float valor);
+	void MoveForward(float Value);
+	void MoveSide(float Value);
+	void ForwardCameraAngle(float Value);
+	void SideCameraAngle(float Value);
 	
 	void ActiveJump_Pressed();
 	void ActiveJump_Released();
@@ -64,6 +75,12 @@ protected:
 
 	void SpeedUP_Pressed();
 	void SpeedUP_Released();
+
+	void SpeedDown_Pressed();
+	void SpeedDown_Released();
+	
+	void PauseGame_Pressed();
+	void PauseGame_Released();
 	
 	virtual void DefineDefaultValues() override;
 	virtual void ResetDefaultValues() override;
@@ -77,8 +94,11 @@ protected:
 public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
+
+	UFUNCTION(BlueprintCallable)
 	virtual FBaseStructs ReturnCharacterInfo() override;
-	virtual FBaseCharacterStates ReturnCharacterStates() override;
-	virtual FBaseActionEnums ReturnCharacterActions() override;
+	UFUNCTION(BlueprintCallable)
+	virtual EBaseCharacterStates ReturnCharacterStates() override;
+	UFUNCTION(BlueprintCallable)
+	virtual EBaseActionEnums ReturnCharacterActions() override;
 };

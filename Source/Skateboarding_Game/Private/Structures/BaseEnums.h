@@ -9,7 +9,7 @@ public:
 };
 
 UENUM(BlueprintType)
-enum FBaseActionEnums
+enum EBaseActionEnums
 {
 	NormalJumping UMETA(DisplayName = "Normal Jumping"),
 	SkateJumping UMETA(DisplayName = "Skate Jumping"),
@@ -23,7 +23,21 @@ enum FBaseActionEnums
 };
 
 UENUM(BlueprintType)
-enum FBaseCharacterStates
+enum EBasePermittedActionEnums
+{
+	NormalJumpingPermitted UMETA(DisplayName = "Normal Jumping Permitted"),
+	SkateJumpingPermitted UMETA(DisplayName = "Skate Jumping Permitted"),
+	WallSliddingPermitted UMETA(DisplayName = "Wall Slidding Permitted"),
+	LadderSliddingPermitted UMETA(DisplayName = "Ladder Slidding Permitted"),
+	WallRollPermitted UMETA(DisplayName = "Wall Roll Permitted"),
+	BackJumpPermitted UMETA(DisplayName = "Back Jump Permitted"),
+	AirFeintPermitted UMETA(DisplayName = "Air Feint Permitted"),
+	GroundFeintPermitted UMETA(DisplayName = "Ground Feint Permitted"),
+	NoActionPermitted UMETA(DisplayName = "No Action Permitted")
+};
+
+UENUM(BlueprintType)
+enum EBaseCharacterStates
 {
 	OntheGround UMETA(DisplayName = "OntheGround"),
 	FallingIntheAir UMETA(DisplayName = "Falling"),

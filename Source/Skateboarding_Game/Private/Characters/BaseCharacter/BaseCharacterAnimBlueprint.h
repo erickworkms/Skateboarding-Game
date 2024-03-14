@@ -34,9 +34,9 @@ public:
 	bool IsUsingSkateboard = false;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
-	TEnumAsByte<FBaseCharacterStates> CharacterStates;
+	TEnumAsByte<EBaseCharacterStates> CharacterStates;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
-	TEnumAsByte<FBaseActionEnums> CharacterActions;
+	TEnumAsByte<EBaseActionEnums> CharacterActions;
 
 private:
 	UBaseCharacterAnimBlueprint();

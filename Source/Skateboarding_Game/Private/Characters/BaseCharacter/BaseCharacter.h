@@ -59,15 +59,15 @@ protected:
 
 	void SpeedUP_Pressed();
 	void SpeedUP_Released();
-
-	virtual void CheckLife() override;
+	
 	virtual void DefineDefaultValues() override;
 	virtual void ResetDefaultValues() override;
 	virtual void DefineSpeedValues() override;
 	virtual void CreateDefaultCharacterSettings() override;
 	virtual void CharacterTimer() override;
-
-public:	
+	virtual void CreateDefaultCameraSettings() override;
+	
+public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	

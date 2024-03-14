@@ -7,9 +7,10 @@ struct FBaseStructs
 {
 	GENERATED_BODY()
 
-	FBaseStructs(float Speed, float CharacterAngle, float Direction, float AnimationSpeed, float MaxSpeed,
-		bool bIsCharacterMoving, bool bIsUsingSkateboard, bool bActionIsActived)
-		: Speed(Speed),
+	FBaseStructs(float Points,float Speed, float CharacterAngle, float Direction, float AnimationSpeed, float MaxSpeed,
+	             bool bIsCharacterMoving, bool bIsUsingSkateboard, bool bActionIsActived)
+		: Points(Points),
+		  Speed(Speed),
 		  CharacterAngle(CharacterAngle),
 		  Direction(Direction),
 		  AnimationSpeed(AnimationSpeed),
@@ -19,18 +20,22 @@ struct FBaseStructs
 		  ActionIsActived(bActionIsActived)
 	{
 	}
+
 	FBaseStructs()
-			: Speed(0),
-			  CharacterAngle(0),
-			  Direction(0),
-			  AnimationSpeed(0),
-			  MaxSpeed(0),
-			  IsCharacterMoving(false),
-			  IsUsingSkateboard(false),
-			  ActionIsActived(false)
+		: Points(0),
+		  Speed(0),
+		  CharacterAngle(0),
+		  Direction(0),
+		  AnimationSpeed(0),
+		  MaxSpeed(0),
+		  IsCharacterMoving(false),
+		  IsUsingSkateboard(false),
+		  ActionIsActived(false)
 	{
 	}
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Points;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -47,6 +52,5 @@ struct FBaseStructs
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool IsUsingSkateboard; //Check if a character is walking with and without the skateboard
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool ActionIsActived;  // Check if a character is playing any action movements 
-
+	bool ActionIsActived; // Check if a character is playing any action movements 
 };

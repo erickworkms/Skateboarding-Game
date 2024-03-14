@@ -15,12 +15,12 @@ class SKATEBOARDING_GAME_API ICharacterBaseInterfaces
 	GENERATED_BODY()
 
 public:
-	virtual void CheckLife();
 	virtual void DefineDefaultValues();
 	virtual void ResetDefaultValues();
 	virtual void DefineSpeedValues();
 	
 	virtual void CreateDefaultCharacterSettings();
+	virtual void CreateDefaultCameraSettings();
 	virtual void CharacterTimer();
 	
 	virtual FBaseStructs ReturnCharacterInfo();

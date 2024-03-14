@@ -1,9 +1,5 @@
 ﻿#include "CharacterBaseInterfaces.h"
 
-void ICharacterBaseInterfaces::CheckLife()
-{
-}
-
 void ICharacterBaseInterfaces::DefineDefaultValues()
 {
 }
@@ -17,6 +13,10 @@ void ICharacterBaseInterfaces::DefineSpeedValues()
 }
 
 void ICharacterBaseInterfaces::CreateDefaultCharacterSettings()
+{
+}
+
+void ICharacterBaseInterfaces::CreateDefaultCameraSettings()
 {
 }
 

@@ -3,9 +3,11 @@
 void ABaseCharacter::ResetDefaultValues()
 {
 	BaseVariables.ActionIsActived = false;
-	BaseVariables.IsCharacterMoving = false;
+	//BaseVariables.IsCharacterMoving = false;
 	BaseVariables.IsUsingSkateboard = false;
-
-	CharacterStates = OntheGround;
+	
+	ButtonIsPressed = false;
+	
+	//CharacterStates = OntheGround;
 	CharacterActions = NoAction;
 }

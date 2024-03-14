@@ -22,6 +22,7 @@ void ABaseCharacter::DefineDefaultValues()
 					 FAttachmentTransformRules::SnapToTargetIncludingScale, "SkateboardSocket");
 	SkateboardMesh->SetRelativeLocationAndRotation(FVector(0, 0, 0),
 										  FRotator(0, 0, 0), false, nullptr);
+	SkateboardMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);

@@ -51,8 +51,8 @@ void UBaseCharacterAnimBlueprint::NativeUpdateAnimation(float DeltaSeconds)
 			IsCharacterMoving = CharacterReference->BaseVariables.IsCharacterMoving;
 			IsUsingSkateboard = CharacterReference->BaseVariables.IsUsingSkateboard;
 
-			CharacterStates = CharacterStates = OntheGround;
-			CharacterActions = CharacterActions = NoAction;
+			CharacterStates = CharacterReference->CharacterStates;
+			CharacterActions = CharacterReference->CharacterActions;
 		}
 	}
 }

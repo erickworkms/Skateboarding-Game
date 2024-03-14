@@ -31,7 +31,9 @@ public:
 	//Basic Variables
 	bool IncreaseSpeed = false;
 	bool DecreaseSpeed = true;
+	bool RunActived = false;
 	bool ButtonIsPressed = false;
+	
 	float IncreaseSpeedValue = 0;
 	float DecreaseSpeedValue = 0;
 	float PressedButtonValue = 0;
@@ -90,7 +92,7 @@ protected:
 	void ControllerMap_Released();
 	
 	virtual void DefineDefaultValues() override;
-	virtual void ResetDefaultValues() override;
+
 	virtual void DefineSpeedValues() override;
 	void CreateDefaultCharacterSettings();
 	virtual void CharacterTimer() override;
@@ -102,6 +104,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	virtual void ResetDefaultValues() override;
+	
 	UFUNCTION(BlueprintCallable)
 	virtual FBaseStructs ReturnCharacterInfo() override;
 	UFUNCTION(BlueprintCallable)

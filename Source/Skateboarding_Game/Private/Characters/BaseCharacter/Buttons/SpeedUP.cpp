@@ -9,27 +9,35 @@ void ABaseCharacter::SpeedUP_Pressed()
 		IncreaseSpeed = true;
 		IncreaseSpeedValue += 0.2;
 
-		if (DecreaseSpeedValue > 0)
+		if (!RunActived && BaseVariables.IsUsingSkateboard)
 		{
-			DecreaseSpeedValue -= IncreaseSpeedValue;
+			if (DecreaseSpeedValue > 0)
+			{
+				DecreaseSpeedValue -= IncreaseSpeedValue;
+			}
+			else
+			{
+				DecreaseSpeedValue = 0;
+			}
+		
+			if (IncreaseSpeedValue > 1 && IncreaseSpeedValue < 2)
+			{
+				SpeedIndex = 1;
+			}
+			else if (IncreaseSpeedValue > 2)
+			{
+				SpeedIndex = 2;
+			}
+			else
+			{
+				SpeedIndex = 0;
+			}
 		}
-		else
+		else if(!RunActived && IncreaseSpeedValue > 0.3)
 		{
-			DecreaseSpeedValue = 0;
+			RunActived = true;
 		}
 		
-		if (IncreaseSpeedValue > 1 && IncreaseSpeedValue < 2)
-		{
-			SpeedIndex = 1;
-		}
-		else if (IncreaseSpeedValue > 2)
-		{
-			SpeedIndex = 2;
-		}
-		else
-		{
-			SpeedIndex = 0;
-		}
 	}
 }
 

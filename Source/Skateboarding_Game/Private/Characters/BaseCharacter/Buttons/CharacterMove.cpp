@@ -7,7 +7,23 @@ void ABaseCharacter::MoveForward(float Value)
 		&& CharacterActions != BackJump && !UGameplayStatics::IsGamePaused(GetWorld()))
 	{
 		FVector Forward = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::X);
-		AddMovementInput(Forward, Value);
+
+		if (BaseVariables.IsUsingSkateboard)
+		{
+			if (BaseVariables.Speed > 100)
+			{
+				AddMovementInput((GetRootComponent()->GetComponentToWorld().GetRotation().GetForwardVector() * 2000) + Forward, Value);
+			}
+			else
+			{
+				AddMovementInput(Forward, Value);
+			}
+			
+		}
+		else
+		{
+			AddMovementInput(Forward, Value);
+		}
 	}
 	else if (UGameplayStatics::IsGamePaused(GetWorld()))
 	{

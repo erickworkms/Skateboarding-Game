@@ -1,2 +1,2 @@
 # Skateboarding-Game
- A Skateboarding Game templete
+ A Skateboarding Game template

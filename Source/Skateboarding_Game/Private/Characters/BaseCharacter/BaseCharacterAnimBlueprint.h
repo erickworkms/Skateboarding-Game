@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Structures/BaseEnums.h"
-#include "Structures/BaseStructs.h"
 #include "BaseCharacterAnimBlueprint.generated.h"
 
 /**
@@ -32,6 +31,10 @@ public:
 	bool IsCharacterMoving = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
 	bool IsUsingSkateboard = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	bool IncreaseSpeed = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	bool DecreaseSpeed = false;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
 	TEnumAsByte<EBaseCharacterStates> CharacterStates;

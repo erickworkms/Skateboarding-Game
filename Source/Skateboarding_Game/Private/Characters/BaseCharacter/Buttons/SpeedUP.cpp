@@ -1,47 +1,37 @@
-﻿
-#include "Characters/BaseCharacter/BaseCharacter.h"
+﻿#include "Characters/BaseCharacter/BaseCharacter.h"
+#include "GameFramework/CharacterMovementComponent.h"
+
 
 void ABaseCharacter::SpeedUP_Pressed()
 {
 	if (!ButtonIsPressed)
 	{
 		ButtonIsPressed = true;
-		IncreaseSpeed = true;
-		IncreaseSpeedValue += 0.2;
 
 		if (!RunActived && BaseVariables.IsUsingSkateboard)
 		{
-			if (DecreaseSpeedValue > 0)
-			{
-				DecreaseSpeedValue -= IncreaseSpeedValue;
-			}
-			else
-			{
-				DecreaseSpeedValue = 0;
-			}
-		
-			if (IncreaseSpeedValue > 1 && IncreaseSpeedValue < 2)
-			{
-				SpeedIndex = 1;
-			}
-			else if (IncreaseSpeedValue > 2)
-			{
-				SpeedIndex = 2;
-			}
-			else
-			{
-				SpeedIndex = 0;
-			}
+			IncreaseSpeed = true;
 		}
-		else if(!RunActived && IncreaseSpeedValue > 0.3)
+		else if (!RunActived)
 		{
 			RunActived = true;
 		}
-		
 	}
 }
 
 void ABaseCharacter::SpeedUP_Released()
 {
 	ButtonIsPressed = false;
+	IncreaseSpeed = false;
+	
+	if (BaseVariables.IsUsingSkateboard)
+	{
+		RunActived = false;
+	}
 }
+
+void ABaseCharacter::LastVelocityTimer()
+{
+	GetCharacterMovement()->AddImpulse((GetActorForwardVector() * 10000.0f)/ 500, true);
+}
+

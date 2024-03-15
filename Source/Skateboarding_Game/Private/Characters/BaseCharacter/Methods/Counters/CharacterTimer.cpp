@@ -5,4 +5,5 @@ void ABaseCharacter::CharacterTimer()
 {
 	DefineSpeedValues();
 	DefineCharacterState();
+	ExecutePointTimer();
 }

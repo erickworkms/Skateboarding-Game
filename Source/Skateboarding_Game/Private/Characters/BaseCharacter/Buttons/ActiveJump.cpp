@@ -3,12 +3,18 @@
 
 void ABaseCharacter::ActiveJump_Pressed()
 {
-	if (!ButtonIsPressed && CharacterStates == OntheGround && CharacterActions != NormalJumping
+	if (CharacterStates == OntheGround && CharacterActions != NormalJumping
 		&& CharacterActions != SkateJumping && !UGameplayStatics::IsGamePaused(GetWorld()))
 	{
 		if (BaseVariables.IsUsingSkateboard)
 		{
 			CharacterActions = SkateJumping;
+			
+			GetWorldTimerManager().SetTimer(
+				ButtonPressTimer,
+				this,
+				&ABaseCharacter::LastVelocityTimer,
+				0.01, true);
 		}
 		else if (!BaseVariables.IsUsingSkateboard)
 		{

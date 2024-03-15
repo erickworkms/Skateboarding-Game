@@ -13,7 +13,6 @@ void ABaseCharacter::ChangeSkateboardUse_Pressed()
 		else
 		{
 			BaseVariables.IsUsingSkateboard = true;
-			RunActived = false;
 		}
 	}
 }

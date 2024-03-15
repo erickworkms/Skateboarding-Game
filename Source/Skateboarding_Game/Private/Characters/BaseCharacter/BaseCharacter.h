@@ -30,16 +30,17 @@ public:
 	
 	//Basic Variables
 	bool IncreaseSpeed = false;
-	bool DecreaseSpeed = true;
+	bool DecreaseSpeed = false;
 	bool RunActived = false;
 	bool ButtonIsPressed = false;
 	
-	float IncreaseSpeedValue = 0;
-	float DecreaseSpeedValue = 0;
-	float PressedButtonValue = 0;
-	int SpeedIndex = 0;
-	
+	bool ReceivePointsContinue = false;
 
+	UPROPERTY()
+	AActor* WallDetected = nullptr;
+	
+	FRotator RootRotation;
+	
 	UPROPERTY()
 	ASkateboardGameMode* SkateGameMode;
 	
@@ -49,7 +50,7 @@ public:
 
 	UPROPERTY()
 	FBaseStructs BaseVariables;
-
+	
 	UPROPERTY()
 	TEnumAsByte<EBasePermittedActionEnums> PossibleAction;
 	
@@ -59,6 +60,8 @@ public:
 	FTimerHandle ActionTimer;
 	UPROPERTY()
 	FTimerHandle ButtonPressTimer;
+	UPROPERTY()
+	FTimerHandle ActionContinueTimer;
 	
 	
 protected:
@@ -92,6 +95,9 @@ protected:
 	void ControllerMap_Released();
 	
 	virtual void DefineDefaultValues() override;
+	void LastVelocityTimer();
+	void ExecutePointTimer();
+	void ExecActionContinue();
 
 	virtual void DefineSpeedValues() override;
 	void CreateDefaultCharacterSettings();

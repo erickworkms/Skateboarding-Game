@@ -27,7 +27,13 @@ void ABaseCharacter::DefineDefaultValues()
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);
 	GetCharacterMovement()->JumpZVelocity = 1000.0f;
+	GetCharacterMovement()->AirControlBoostMultiplier = 1;
+	GetCharacterMovement()->AirControlBoostVelocityThreshold = 1000;
 	GetCharacterMovement()->AirControl = 0.5f;
+	GetCharacterMovement()->GravityScale = 1.f;
+	GetCharacterMovement()->GroundFriction = 1000.f;
+	GetCharacterMovement()->bAllowPhysicsRotationDuringAnimRootMotion = true;
+
 
 	GetController()->SetTickableWhenPaused(true);
 
@@ -37,3 +43,5 @@ void ABaseCharacter::DefineDefaultValues()
 		SkateGameMode = Cast<ASkateboardGameMode>(SkateController->GetWorld()->GetAuthGameMode());
 	}
 }
+
+

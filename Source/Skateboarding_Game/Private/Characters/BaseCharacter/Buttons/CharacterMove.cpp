@@ -12,7 +12,7 @@ void ABaseCharacter::MoveForward(float Value)
 		{
 			if (BaseVariables.Speed > 100)
 			{
-				AddMovementInput((GetRootComponent()->GetComponentToWorld().GetRotation().GetForwardVector() * 2000) + Forward, Value);
+				AddMovementInput( Forward, Value);
 			}
 			else
 			{
